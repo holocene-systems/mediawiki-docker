@@ -1,4 +1,4 @@
-FROM mediawiki:latest
+FROM mediawiki:1.35.1
 
 RUN apt-get update; \
     apt-get install --assume-yes --no-install-recommends libpq-dev; \
