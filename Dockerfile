@@ -6,8 +6,7 @@ RUN apt-get update; \
     docker-php-ext-install pgsql
 
 # This volume stores images that are uploaded to MediaWiki.
-#
-# See: https://www.mediawiki.org/wiki/Manual:$wgEnableUploads
+# https://www.mediawiki.org/wiki/Manual:$wgEnableUploads
 VOLUME /var/www/html/images
 
 # AWS Fargate doesn't support persistent file bind mounts, which is why
@@ -16,6 +15,5 @@ VOLUME /var/www/html/images
 VOLUME /var/www/html/overlay
 
 # LocalSettings.php file is generated during the initial setup process.
-#
-# See: https://www.mediawiki.org/wiki/Manual:LocalSettings.php
+# https://www.mediawiki.org/wiki/Manual:LocalSettings.php
 RUN ln -s /var/www/html/overlay/LocalSettings.php /var/www/html
