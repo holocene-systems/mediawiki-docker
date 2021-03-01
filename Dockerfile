@@ -1,9 +1,11 @@
 FROM mediawiki:1.35.1
 
 # Set up PHP with PostgreSQL support.
-RUN apt-get update; \
+RUN set -o errexit -o nounset -o xtrace; \
+    apt-get update; \
     apt-get install --assume-yes --no-install-recommends libpq-dev; \
-    docker-php-ext-install pgsql
+    docker-php-ext-install pgsql; \
+    rm --recursive /var/lib/apt/lists
 
 # This volume stores images that are uploaded to MediaWiki.
 # https://www.mediawiki.org/wiki/Manual:$wgEnableUploads
