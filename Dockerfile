@@ -1,4 +1,4 @@
-FROM mediawiki:1.35.1
+FROM mediawiki:1.35.2
 
 # Set up PHP with PostgreSQL support.
 RUN set -o errexit -o nounset -o xtrace; \
